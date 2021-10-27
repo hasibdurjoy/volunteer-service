@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Card } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
-import { useHistory, useLocation } from 'react-router';
+import { useHistory } from 'react-router';
 import { useForm } from 'react-hook-form';
 import { useParams } from 'react-router';
 import useAuth from '../../../Hooks/useAuth';
@@ -11,6 +10,7 @@ const VolunteerRegister = () => {
     const { serviceId } = useParams();
     const [service, setService] = useState({});
     const history = useHistory();
+    
     useEffect(() => {
         fetch(`https://damp-sands-70230.herokuapp.com/services/${serviceId}`)
             .then(res => res.json())
@@ -21,7 +21,7 @@ const VolunteerRegister = () => {
 
     const onSubmit = data => {
         console.log(data);
-        fetch('http://localhost:5000/volunteers', {
+        fetch('https://damp-sands-70230.herokuapp.com/volunteers', {
             method: "POST",
             headers: {
                 'content-type': 'application/json'
