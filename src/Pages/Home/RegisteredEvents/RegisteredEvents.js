@@ -16,7 +16,7 @@ const RegisteredEvents = () => {
     return (
         <div>
             <h4>Your Registered events</h4>
-            <Row xs={1} md={3} className="g-4 container mt-3">
+            <Row xs={1} md={3} className="g-4 mx-5 mt-3">
                 {
                     volunteers.map(event => <RegisteredEvent key={event._id} event={event}></RegisteredEvent>)
                 }

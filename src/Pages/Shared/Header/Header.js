@@ -33,7 +33,7 @@ const Header = () => {
                                 :
                                 <>
                                     <Nav.Link as={Link} to="/login"><button className="btn btn-primary rounded mx-2">Log in/Register</button></Nav.Link>
-                                    <Nav.Link> <button className="btn btn-warning rounded mx-2">Admin</button></Nav.Link>
+                                    <Nav.Link as={Link} to="/admin"> <button className="btn btn-warning rounded mx-2">Admin</button></Nav.Link>
                                 </>
                         }
                     </Nav>

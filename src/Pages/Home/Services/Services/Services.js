@@ -9,7 +9,7 @@ const Services = () => {
         fetch('https://damp-sands-70230.herokuapp.com/services')
             .then(res => res.json())
             .then(data => setServices(data))
-    }, [])
+    }, []);
     return (
         <Container>
             <Row xs={1} md={4} className="g-4">

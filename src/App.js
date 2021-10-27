@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import Home from './Pages/Home/Home/Home';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
@@ -9,6 +8,7 @@ import Login from './Pages/Authentication/Login/Login';
 import Register from './Pages/Authentication/Register/Register';
 import PrivateRoute from './Pages/Authentication/PrivateRoute/PrivateRoute';
 import RegisteredEvents from './Pages/Home/RegisteredEvents/RegisteredEvents';
+import Admin from './Pages/Admin/Admin/Admin';
 
 function App() {
   return (
@@ -21,6 +21,7 @@ function App() {
             <Route path='/home'><Home /></Route>
             <Route path='/login'><Login /></Route>
             <Route path='/register'><Register /></Route>
+            <Route path='/admin'><Admin /></Route>
             <PrivateRoute path='/volunteerRegister/:serviceId'><VolunteerRegister /></PrivateRoute>
             <PrivateRoute path='/volunteers/:email'><RegisteredEvents /></PrivateRoute>
           </Switch>
