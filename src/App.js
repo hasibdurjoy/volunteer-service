@@ -7,6 +7,8 @@ import VolunteerRegister from './Pages/Home/VolunteerRegister/VolunteerRegister'
 import AuthProvider from './Context/AuthProvides';
 import Login from './Pages/Authentication/Login/Login';
 import Register from './Pages/Authentication/Register/Register';
+import PrivateRoute from './Pages/Authentication/PrivateRoute/PrivateRoute';
+import RegisteredEvents from './Pages/Home/RegisteredEvents/RegisteredEvents';
 
 function App() {
   return (
@@ -19,7 +21,8 @@ function App() {
             <Route path='/home'><Home /></Route>
             <Route path='/login'><Login /></Route>
             <Route path='/register'><Register /></Route>
-            <Route path='/volunteerRegister/:serviceId'><VolunteerRegister /></Route>
+            <PrivateRoute path='/volunteerRegister/:serviceId'><VolunteerRegister /></PrivateRoute>
+            <PrivateRoute path='/volunteers/:email'><RegisteredEvents /></PrivateRoute>
           </Switch>
         </Router>
       </AuthProvider>
