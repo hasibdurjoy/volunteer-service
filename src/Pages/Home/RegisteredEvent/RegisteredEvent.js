@@ -5,7 +5,7 @@ const RegisteredEvent = ({ event }) => {
 
     const [volunteers, setVolunteers] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/volunteers')
+        fetch('https://damp-sands-70230.herokuapp.com/volunteers')
             .then(res => res.json())
             .then(data => setVolunteers(data))
     }, []);
@@ -13,7 +13,7 @@ const RegisteredEvent = ({ event }) => {
     const handleDeleteUser = (id) => {
         const proceed = window.confirm('Are you sure, you want to delete?');
         if (proceed) {
-            const url = `http://localhost:5000/volunteers/${id}`;
+            const url = `https://damp-sands-70230.herokuapp.com/volunteers/${id}`;
             fetch(url, {
                 method: 'DELETE'
             })
