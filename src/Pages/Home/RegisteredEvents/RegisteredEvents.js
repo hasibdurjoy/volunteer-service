@@ -1,25 +1,26 @@
 import React, { useEffect, useState } from 'react';
+import { Row } from 'react-bootstrap';
 import { useParams } from 'react-router';
 import RegisteredEvent from '../RegisteredEvent/RegisteredEvent';
 
 const RegisteredEvents = () => {
     const { email } = useParams();
-    const [volunteer, setVolunteer] = useState([]);
+    const [volunteers, setVolunteers] = useState([]);
 
     useEffect(() => {
         fetch(`https://damp-sands-70230.herokuapp.com/volunteers`)
             .then(res => res.json())
-            .then(data => setVolunteer(data))
+            .then(data => setVolunteers(data.filter(vol => vol.email === email)))
     }, []);
 
-    const matchedServices = volunteer.filter(vol => vol.email === email)
-    console.log(matchedServices);
     return (
         <div>
             <h4>Your Registered events</h4>
-            {
-                matchedServices.map(matched => <RegisteredEvent matched={matched}></RegisteredEvent>)
-            }
+            <Row xs={1} md={3} className="g-4 container mt-3">
+                {
+                    volunteers.map(event => <RegisteredEvent key={event._id} event={event}></RegisteredEvent>)
+                }
+            </Row>
         </div>
     );
 };

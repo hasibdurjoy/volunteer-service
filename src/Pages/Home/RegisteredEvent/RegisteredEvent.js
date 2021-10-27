@@ -1,12 +1,21 @@
 import React from 'react';
+import { Card, Col } from 'react-bootstrap';
 
-const RegisteredEvent = ({matched}) => {
+const RegisteredEvent = ({ event }) => {
     return (
-        <div>
-            <h3>{matched.service}</h3>
-            <h3>{matched.date}</h3>
-            <h4>{matched.time}</h4> <br />
-        </div>
+        <Col>
+            <Card className=" h-100 ">
+                {/* <Card.Img variant="top" src={service.img} /> */}
+                <Card.Body>
+                    <Card.Title>{event.service}</Card.Title>
+                </Card.Body>
+                <Card.Text>
+                    <p>Register Date : {event.date}</p>
+                    <p>Register Time : {event.time}</p>
+                    <button className="btn btn-danger mb-4">Cancel</button>
+                </Card.Text>
+            </Card>
+        </Col>
     );
 };
 
