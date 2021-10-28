@@ -10,7 +10,7 @@ const VolunteerRegister = () => {
     const { serviceId } = useParams();
     const [service, setService] = useState({});
     const history = useHistory();
-    
+
     useEffect(() => {
         fetch(`https://damp-sands-70230.herokuapp.com/services/${serviceId}`)
             .then(res => res.json())
@@ -20,6 +20,8 @@ const VolunteerRegister = () => {
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
 
     const onSubmit = data => {
+        data.uid = user.uid;
+        data.img = service.img;
         console.log(data);
         fetch('https://damp-sands-70230.herokuapp.com/volunteers', {
             method: "POST",
@@ -31,7 +33,7 @@ const VolunteerRegister = () => {
             .then(res => res.json())
             .then(result => {
                 if (result.insertedId) {
-                    alert('successfully ordered');
+                    alert('successfully added');
                     reset();
                     history.push('/');
                 }

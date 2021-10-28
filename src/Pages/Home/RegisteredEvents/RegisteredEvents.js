@@ -1,16 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import { Row } from 'react-bootstrap';
 import { useParams } from 'react-router';
+import useAuth from '../../../Hooks/useAuth';
 import RegisteredEvent from '../RegisteredEvent/RegisteredEvent';
 
 const RegisteredEvents = () => {
+    const { user } = useAuth();
     const { email } = useParams();
     const [volunteers, setVolunteers] = useState([]);
 
     useEffect(() => {
-        fetch(`https://damp-sands-70230.herokuapp.com/volunteers`)
+        fetch(`https://damp-sands-70230.herokuapp.com/volunteers/${user.uid}`)
             .then(res => res.json())
-            .then(data => setVolunteers(data.filter(vol => vol.email === email)))
+            .then(data => setVolunteers(data));
     }, []);
 
     return (

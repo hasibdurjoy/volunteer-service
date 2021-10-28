@@ -23,7 +23,7 @@ function App() {
             <Route path='/register'><Register /></Route>
             <Route path='/admin'><Admin /></Route>
             <PrivateRoute path='/volunteerRegister/:serviceId'><VolunteerRegister /></PrivateRoute>
-            <PrivateRoute path='/volunteers/:email'><RegisteredEvents /></PrivateRoute>
+            <PrivateRoute path='/volunteers/:uid'><RegisteredEvents /></PrivateRoute>
           </Switch>
         </Router>
       </AuthProvider>
